@@ -7,6 +7,7 @@ import numpy as np
 
 
 def words2onehot(word_list, word2index):
+  
   # Convert words to word IDs 
   word_ids = [word2index[w] for w in word_list]
   # Convert word IDs to onehot vectors and return the onehot array
