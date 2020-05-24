@@ -45,6 +45,7 @@ if __name__ == '__main__':
     context = encoder(onehot)
     print(context)
 
+    
     index2word = {0: 'We', 1: 'like', 2: 'dogs'}
     # Convert context to reversed onehot vectors using decoder
     onehot_rev = decoder(context)
