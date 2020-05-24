@@ -19,10 +19,8 @@ if __name__ == '__main__':
     
     word2index = {'I': 0, 'cats': 2, 'like': 1}
     words = ["I", "like", "cats"]
-    
     # Convert words to onehot vectors using words2onehot
     onehot = words2onehot(words, word2index)
-    
     # Print the result as (<word>, <onehot>) tuples
     print([(w,ohe.tolist()) for w,ohe in zip(words,onehot)])
 
