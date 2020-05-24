@@ -20,3 +20,4 @@ if __name__ == '__main__':
 
     one_hot_results = compute_onehot(l_words, word2index)
     print(one_hot_results)
+    import numpy as np
