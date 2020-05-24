@@ -8,6 +8,7 @@ from tensorflow.keras.utils import to_categorical
 
 
 def compute_onehot(list_words, dict_word2index):
+    
     word_ids = [dict_word2index[word] for word in list_words]
     one_hot_vectors = to_categorical(word_ids, num_classes=5)
     # note that this will be a numpy matrix
@@ -15,6 +16,7 @@ def compute_onehot(list_words, dict_word2index):
 
 
 if __name__ == '__main__':
+    
     l_words = ['I', 'like', 'dogs']
     word2index = {'I': 0, 'like': 1, 'dogs': 2}
 
