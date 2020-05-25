@@ -1,6 +1,5 @@
 from tensorflow.keras.utils import to_categorical
 import numpy as np
-
 # In this code we will try to recreate
 # Encoder-Decoder architecture in "Encoder_decoder_reversing.png"
 # To get the idea of ending-decoding without using machine learning
