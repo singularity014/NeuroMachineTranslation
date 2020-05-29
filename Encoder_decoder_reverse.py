@@ -1,6 +1,5 @@
 from tensorflow.keras.utils import to_categorical
 import numpy as np
-
 # In this code we will try to recreate
 # Encoder-Decoder architecture in "Encoder_decoder_reversing.png"
 # To get the idea of ending-decoding without using machine learning
@@ -45,6 +44,7 @@ if __name__ == '__main__':
     context = encoder(onehot)
     print(context)
 
+    
     index2word = {0: 'We', 1: 'like', 2: 'dogs'}
     # Convert context to reversed onehot vectors using decoder
     onehot_rev = decoder(context)
