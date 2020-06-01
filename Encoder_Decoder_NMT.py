@@ -12,6 +12,7 @@ hsize = 48
 
 # No matter how complex the model, the unederline concdept of encoder remains the same
 #  ---------------- ENCODER -----------------------------
+
 # Define an input layer
 en_inputs = keras.layers.Input(shape=(en_len, en_vocab))
 
