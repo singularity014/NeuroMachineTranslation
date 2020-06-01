@@ -9,7 +9,6 @@ import tensorflow.keras as keras
 en_len = 15
 en_vocab = 150
 hsize = 48
-
 # No matter how complex the model, the unederline concdept of encoder remains the same
 #  ---------------- ENCODER -----------------------------
 
