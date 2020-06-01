@@ -6,11 +6,10 @@ from tensorflow.keras.layers import GRU
 import tensorflow.keras as keras
 
 
-# We need following for creating Encoder
+# We need following for creating Encoder...
 en_len = 15
 en_vocab = 150
 hsize = 48
-
 
 #  ---------------- ENCODER -----------------------------
 # Define an input layer
