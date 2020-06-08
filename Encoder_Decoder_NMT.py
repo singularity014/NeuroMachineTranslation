@@ -27,14 +27,22 @@ en_out, en_state = en_gru(en_inputs)
 encoder = keras.models.Model(inputs=en_inputs, outputs=en_state)
 print(encoder.summary())
 
-# Repeat Vector approach
-inp = Input(shape=(2,))
-# Define a RepeatVector that repeats the input 6 times
-rep = RepeatVector(6)(inp)
-# Define a model
-model = Model(inputs=inp, outputs=rep)
-# Define input x
-x = np.array([[0,1], [2,3]])
-# Get model prediction 
-y = model.predict(x)
-print('x.shape = ',x.shape,'\ny.shape = ',y.shape)
+# ---------------- DECODER ----------------------------------
+from tensorflow.keras.layers import RepeatVector
+
+hsize = 48
+# average length of French sentences
+fr_len = 20
+# Define a RepeatVector layer
+de_inputs = RepeatVector(fr_len)(en_state)
+# Define a GRU model that returns all outputs
+decoder_gru = GRU(hsize, return_sequences=True)
+# Get the outputs of the decoder
+gru_outputs = decoder_gru(de_inputs, initial_state=en_state)
+
+# ENCODER <-> DECODER
+# Define a model with the correct inputs and outputs
+enc_dec = Model(inputs=en_inputs, outputs=gru_outputs)
+print(enc_dec.summary())
+
+
