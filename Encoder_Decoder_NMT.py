@@ -1,6 +1,8 @@
 from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import GRU
+from tensorflow.keras.layers import RepeatVector
+import numpy as np
 
 # For creating an Encoder -
 import tensorflow.keras as keras
@@ -24,3 +26,15 @@ en_out, en_state = en_gru(en_inputs)
 # Define and print the model summary
 encoder = keras.models.Model(inputs=en_inputs, outputs=en_state)
 print(encoder.summary())
+
+# Repeat Vector approach
+inp = Input(shape=(2,))
+# Define a RepeatVector that repeats the input 6 times
+rep = RepeatVector(6)(inp)
+# Define a model
+model = Model(inputs=inp, outputs=rep)
+# Define input x
+x = np.array([[0,1], [2,3]])
+# Get model prediction 
+y = model.predict(x)
+print('x.shape = ',x.shape,'\ny.shape = ',y.shape)
