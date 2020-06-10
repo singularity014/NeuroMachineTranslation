@@ -10,5 +10,5 @@ to other word embeddings .
 Teacher forcing approach for improving the NMT results.
 For starters, we will take source language as English and Target language
 as French.
-Experimenting the impact of different embeddings and advantages over simple one-hot...
+Experimenting the impact of different embeddings and advantages over simple one-hot.....
 
