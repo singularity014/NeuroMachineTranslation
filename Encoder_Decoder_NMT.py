@@ -2,6 +2,9 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input
 from tensorflow.keras.layers import GRU
 from tensorflow.keras.layers import RepeatVector
+# Import Dense and TimeDistributed layers
+from tensorflow.keras.layers import Dense, TimeDistributed
+
 import numpy as np
 
 # For creating an Encoder -
@@ -44,5 +47,15 @@ gru_outputs = decoder_gru(de_inputs, initial_state=en_state)
 # Define a model with the correct inputs and outputs
 enc_dec = Model(inputs=en_inputs, outputs=gru_outputs)
 print(enc_dec.summary())
+
+# ---------------- Creating the later after decoder GRU output-------
+
+# Define a softmax dense layer that has fr_vocab outputs
+de_dense = Dense(fr_vocab, activation='softmax')
+# Wrap the dense layer in a TimeDistributed layer
+de_dense_time = TimeDistributed(de_dense)
+# Get the final prediction of the model
+de_pred = de_dense_time(de_out)
+print("Prediction shape: ", de_pred.shape)
 
 
